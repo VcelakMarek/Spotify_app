@@ -1,13 +1,23 @@
 import type { Config } from "tailwindcss";
+import { nunito } from "utils/fonts";
 
 const config: Config = {
   content: [
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "./utils/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
-      
+      colors: {
+        "green":"var(--green)",
+        "white":"var(--white)",
+        "black":"var(--black)"
+      },
+      fontFamily: {
+        nunito: ["var(--font-nunito)"]
+      }
     },
   },
   plugins: [],
