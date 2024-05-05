@@ -5,6 +5,8 @@ export type Props = {
   onClick?: () => void
   disabled?: boolean
   children?: ReactNode
+  submit?: boolean
+  icon?: string
 }
 
 const textColor = {
@@ -19,7 +21,7 @@ const backgroundColor = {
 
 const border = {
   primary: "border border-green rounded-full",
-  secondary: "border border-white rounded-full",
+  secondary: "border border-[#727272] hover:border-white rounded-full",
 }
 
 const Button = ({
@@ -27,8 +29,10 @@ const Button = ({
   onClick,
   disabled,
   children,
+  submit,
+  icon,
 }: Props) => {
-  const dimensions = "h-12 px-8 py-2 w-[260px]"
+  const dimensions = "h-12 px-8 py-2 w-[324px]"
   const text = "font-bold text-md tracking-[1px] text-center"
 
   let baseClasses = [
@@ -43,11 +47,12 @@ const Button = ({
 
   return (
     <button
-      type="button"
+      type={submit ? "submit" : "button"}
       onClick={onClick}
       className={baseClasses.join(" ")}
       disabled={disabled}
     >
+      {icon && <img src={icon} alt={`${icon}-icon`} />}
       {children}
     </button>
   )
