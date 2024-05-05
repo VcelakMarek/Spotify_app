@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import { nunito } from "utils/fonts";
 
 const config: Config = {
   content: [
